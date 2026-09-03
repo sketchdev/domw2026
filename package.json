@@ -1,0 +1,48 @@
+{
+  "name": "@domw2026/cdk",
+  "description": "CDK constructs built for the DevOps Midwest 2026 conference.",
+  "license": "UNLICENSED",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "url": "git+https://github.com/sketchdev/domw2026.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/ test/",
+    "package": "npm run build && npm pack"
+  },
+  "keywords": [
+    "aws",
+    "cdk",
+    "construct",
+    "static-site",
+    "cloudfront",
+    "s3"
+  ],
+  "author": "",
+  "peerDependencies": {
+    "aws-cdk-lib": "^2.x",
+    "constructs": "^10.x"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^29.x",
+    "@typescript-eslint/eslint-plugin": "^8.69.0",
+    "@typescript-eslint/parser": "^8.69.0",
+    "aws-cdk-lib": "^2.x",
+    "constructs": "^10.x",
+    "eslint": "^10.9.1",
+    "fast-check": "^3.x",
+    "jest": "^29.x",
+    "ts-jest": "^29.x",
+    "typescript": "^5.x",
+    "typescript-eslint": "^8.69.0"
+  },
+  "files": [
+    "lib/**/*",
+    "README.md"
+  ]
+}

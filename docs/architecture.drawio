@@ -1,0 +1,70 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.6 Chrome/140.0.7339.249 Electron/38.8.0 Safari/537.36" version="29.3.6">
+  <diagram name="StaticSiteConstruct" id="static-site-construct-diagram">
+    <mxGraphModel dx="1053" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CDq1nSpJ4NioFHMhuWGa-1" edge="1" parent="1" source="route53" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="cloudfront">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="route53" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.route_53;" value="Route 53&#xa;(DNS Alias)" vertex="1">
+          <mxGeometry height="60" width="60" x="150" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="CDq1nSpJ4NioFHMhuWGa-9" edge="1" parent="1" source="cloudfront" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="CDq1nSpJ4NioFHMhuWGa-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudfront" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.cloudfront;" value="CloudFront&#xa;Distribution" vertex="1">
+          <mxGeometry height="78" width="78" x="321" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="acm" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.certificate_manager_3;" value="ACM Certificate&#xa;(SSL/TLS)" vertex="1">
+          <mxGeometry height="60" width="60" x="510" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="response-headers" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.shield;" value="Response Headers&#xa;Policy (Security)" vertex="1">
+          <mxGeometry height="60" width="60" x="510" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="cf-function" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=#FF8C00;strokeWidth=2;dashed=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.lambda_function;" value="CloudFront Function&#xa;(URL Rewrite)" vertex="1">
+          <mxGeometry height="60" width="60" x="190" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-bucket" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;" value="S3 Bucket&#xa;(Static Assets)" vertex="1">
+          <mxGeometry height="78" width="78" x="501" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-cf-acm" edge="1" parent="1" source="cloudfront" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#232F3E;dashed=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="acm" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="399" y="260" as="sourcePoint" />
+            <mxPoint x="510" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-cf-headers" edge="1" parent="1" source="cloudfront" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#232F3E;dashed=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="response-headers" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="399" y="300" as="sourcePoint" />
+            <mxPoint x="510" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-cf-function" edge="1" parent="1" source="cloudfront" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#FF8C00;dashed=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="cf-function" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="321" y="300" as="sourcePoint" />
+            <mxPoint x="220" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CDq1nSpJ4NioFHMhuWGa-5" edge="1" parent="1" source="CDq1nSpJ4NioFHMhuWGa-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=2;" target="s3-bucket">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CDq1nSpJ4NioFHMhuWGa-4" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.addon;opacity=50;" value="CMK Encryption&lt;div&gt;(optional)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="78" x="630" y="499" as="geometry" />
+        </mxCell>
+        <mxCell id="CDq1nSpJ4NioFHMhuWGa-7" edge="1" parent="1" source="CDq1nSpJ4NioFHMhuWGa-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="cloudfront">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CDq1nSpJ4NioFHMhuWGa-6" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.users;" value="Users" vertex="1">
+          <mxGeometry height="78" width="78" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CDq1nSpJ4NioFHMhuWGa-10" edge="1" parent="1" source="CDq1nSpJ4NioFHMhuWGa-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="s3-bucket">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CDq1nSpJ4NioFHMhuWGa-8" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.permissions;" value="Origin Access&lt;br&gt;Control (OAC)" vertex="1">
+          <mxGeometry height="78" width="62" x="329" y="480" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
