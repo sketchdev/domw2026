@@ -2,17 +2,42 @@
   "name": "@domw2026/cdk",
   "description": "CDK constructs built for the DevOps Midwest 2026 conference.",
   "license": "UNLICENSED",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": {
+    "type": "git",
     "url": "git+https://github.com/sketchdev/domw2026.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "jsii --tsconfig tsconfig.json --validate-tsconfig=minimal",
     "test": "jest",
     "lint": "eslint src/ test/",
-    "package": "npm run build && npm pack"
+    "package": "jsii-pacmak"
+  },
+  "jsii": {
+    "outdir": "dist",
+    "versionFormat": "short",
+    "excludeTypescript": [
+      "test/**/*.ts"
+    ],
+    "tsc": {
+      "outDir": "lib",
+      "rootDir": "src"
+    },
+    "targets": {
+      "python": {
+        "distName": "domw2026-cdk",
+        "module": "domw2026_cdk"
+      },
+      "java": {
+        "package": "com.domw2026.cdk",
+        "maven": {
+          "groupId": "com.domw2026",
+          "artifactId": "cdk"
+        }
+      }
+    }
   },
   "keywords": [
     "aws",
@@ -22,27 +47,33 @@
     "cloudfront",
     "s3"
   ],
-  "author": "",
+  "author": {
+    "name": "DevOps Midwest",
+    "organization": true
+  },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.x",
-    "constructs": "^10.x"
+    "aws-cdk-lib": "^2.268.0",
+    "constructs": "^10.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/jest": "^29.x",
     "@typescript-eslint/eslint-plugin": "^8.69.0",
     "@typescript-eslint/parser": "^8.69.0",
-    "aws-cdk-lib": "^2.x",
-    "constructs": "^10.x",
+    "aws-cdk-lib": "2.268.0",
+    "constructs": "10.8.1",
     "eslint": "^10.9.1",
     "fast-check": "^3.x",
     "jest": "^29.x",
+    "jsii": "~6.0.0",
+    "jsii-pacmak": "~1.140.0",
     "ts-jest": "^29.x",
     "typescript": "^5.x",
     "typescript-eslint": "^8.69.0"
   },
   "files": [
     "lib/**/*",
-    "README.md"
+    "README.md",
+    ".jsii"
   ]
 }

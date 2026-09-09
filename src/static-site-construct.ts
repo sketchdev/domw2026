@@ -26,13 +26,11 @@ import type { ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
  * Configuration properties for the StaticSiteConstruct.
  * 
  * @example
- * ```typescript
  * const site = new StaticSiteConstruct(this, 'MySite', {
  *   domainName: 'www.example.com',
  *   hostedZone: myHostedZone,
  *   isSinglePageApp: true,
  * });
- * ```
  */
 export interface StaticSiteConstructProps {
   /**
@@ -87,7 +85,6 @@ export interface StaticSiteConstructProps {
  * - (Static HTML mode only) A CloudFront Function for clean URL handling
  * 
  * @example
- * ```typescript
  * const site = new StaticSiteConstruct(this, 'MySite', {
  *   domainName: 'www.example.com',
  *   hostedZone: myHostedZone,
@@ -101,7 +98,6 @@ export interface StaticSiteConstructProps {
  *   distribution: site.distribution,
  *   distributionPaths: ['/*'],
  * });
- * ```
  */
 export class StaticSiteConstruct extends Construct {
   /**

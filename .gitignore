@@ -2,3 +2,8 @@ node_modules
 *.tgz
 
 lib/*
+
+# jsii artifacts
+dist/
+.jsii
+.jsii.tabl.json
