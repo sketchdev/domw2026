@@ -11,8 +11,6 @@ import { StaticSiteConstruct } from '../src/static-site-construct';
  * - Origin Access Control (OAC) for secure S3 access
  * - Default root object set to "index.html"
  * - Response headers policy attached
- * 
- * Validates: Requirements 4.1, 4.2, 4.5, 10.3
  */
 describe('CloudFront Distribution', () => {
   let app: App;
@@ -31,7 +29,6 @@ describe('CloudFront Distribution', () => {
 
   describe('S3 Origin Configuration', () => {
     /**
-     * Validates Requirement 4.1:
      * WHEN the Static_Site_Construct is instantiated, THE CloudFront_Distribution
      * SHALL be created with the S3_Origin_Bucket as its origin
      */
@@ -80,7 +77,6 @@ describe('CloudFront Distribution', () => {
 
   describe('Origin Access Control', () => {
     /**
-     * Validates Requirement 4.2:
      * WHEN the Static_Site_Construct is instantiated, THE CloudFront_Distribution
      * SHALL use Origin_Access_Control to access the S3_Origin_Bucket
      */
@@ -132,7 +128,6 @@ describe('CloudFront Distribution', () => {
     });
 
     /**
-     * Validates Requirement 2.4:
      * THE S3_Origin_Bucket SHALL have a bucket policy granting s3:GetObject permission
      * only to the CloudFront_Distribution via Origin_Access_Control
      */
@@ -169,7 +164,6 @@ describe('CloudFront Distribution', () => {
 
   describe('Default Root Object', () => {
     /**
-     * Validates Requirement 4.5:
      * THE CloudFront_Distribution SHALL have a default root object set to "index.html"
      */
     it('should set default root object to index.html', () => {
@@ -212,7 +206,6 @@ describe('CloudFront Distribution', () => {
 
   describe('Response Headers Policy', () => {
     /**
-     * Validates Requirement 5.1:
      * WHEN the Static_Site_Construct is instantiated, THE CloudFront_Distribution
      * SHALL have a Security_Headers_Policy attached
      */
@@ -302,7 +295,6 @@ describe('CloudFront Distribution', () => {
 
   describe('Domain and Certificate Configuration', () => {
     /**
-     * Validates Requirement 4.3:
      * WHEN the Static_Site_Construct is instantiated with a domain name,
      * THE CloudFront_Distribution SHALL be configured with the ACM_Certificate for HTTPS
      */
@@ -350,7 +342,6 @@ describe('CloudFront Distribution', () => {
 
   describe('Construct Properties', () => {
     /**
-     * Validates Requirement 8.6:
      * THE Static_Site_Construct SHALL expose the created CloudFront_Distribution
      * as a public readonly property
      */

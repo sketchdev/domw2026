@@ -13,8 +13,6 @@ import { StaticSiteConstruct } from '../src/static-site-construct';
  * - Full construct in static HTML mode
  * - With and without encryptionKey parameter
  * - Bucket policy grants access to CloudFront OAC
- *
- * Validates: Requirements 2.4, 10.2, 10.3
  */
 describe('StaticSiteConstruct Integration Tests', () => {
   let app: App;
@@ -33,7 +31,6 @@ describe('StaticSiteConstruct Integration Tests', () => {
 
   describe('Full Construct Instantiation - SPA Mode', () => {
     /**
-     * Validates Requirements 10.2, 10.3:
      * Tests that all resources are created when instantiated in SPA mode
      */
     it('should create all required resources in SPA mode', () => {
@@ -160,7 +157,6 @@ describe('StaticSiteConstruct Integration Tests', () => {
 
   describe('Full Construct Instantiation - Static HTML Mode', () => {
     /**
-     * Validates Requirements 10.2, 10.3:
      * Tests that all resources are created when instantiated in static HTML mode
      */
     it('should create all required resources in static HTML mode', () => {
@@ -296,7 +292,6 @@ describe('StaticSiteConstruct Integration Tests', () => {
 
   describe('Full Construct with Optional encryptionKey Parameter', () => {
     /**
-     * Validates Requirement 2.4:
      * Tests full construct instantiation without encryptionKey (SSE-S3)
      */
     it('should create construct with SSE-S3 encryption when no encryptionKey provided', () => {
@@ -328,7 +323,6 @@ describe('StaticSiteConstruct Integration Tests', () => {
     });
 
     /**
-     * Validates Requirement 2.4:
      * Tests full construct instantiation with encryptionKey (SSE-KMS)
      */
     it('should create construct with SSE-KMS encryption when encryptionKey is provided', () => {
@@ -433,7 +427,6 @@ describe('StaticSiteConstruct Integration Tests', () => {
 
   describe('Bucket Policy - CloudFront OAC Access', () => {
     /**
-     * Validates Requirement 2.4:
      * THE S3_Origin_Bucket SHALL have a bucket policy granting s3:GetObject
      * permission only to the CloudFront_Distribution via Origin_Access_Control
      */
@@ -471,7 +464,6 @@ describe('StaticSiteConstruct Integration Tests', () => {
     });
 
     /**
-     * Validates Requirement 2.4:
      * Bucket policy grants access to CloudFront OAC in static HTML mode
      */
     it('should grant s3:GetObject to CloudFront via OAC in static HTML mode', () => {
@@ -601,7 +593,6 @@ describe('StaticSiteConstruct Integration Tests', () => {
 
   describe('Domain Name Validation', () => {
     /**
-     * Validates Requirement 8.7:
      * IF an invalid domain name is provided, THEN THE Static_Site_Construct
      * SHALL fail construction with a descriptive error message
      */
@@ -617,7 +608,6 @@ describe('StaticSiteConstruct Integration Tests', () => {
     });
 
     /**
-     * Validates Requirement 8.7:
      * Domain name must be valid FQDN format
      */
     it('should throw error for invalid domain name format', () => {

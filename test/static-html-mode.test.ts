@@ -10,8 +10,6 @@ import { StaticSiteConstruct } from '../src/static-site-construct';
  * - CloudFront Function is created with cloudfront-js-2.0 runtime
  * - Function is associated on viewer-request event type
  * - NO custom error responses are configured for 403/404
- *
- * Validates: Requirements 7.1, 7.2, 7.8, 10.6
  */
 describe('Static HTML Mode', () => {
   let app: App;
@@ -30,7 +28,6 @@ describe('Static HTML Mode', () => {
 
   describe('CloudFront Function Creation', () => {
     /**
-     * Validates Requirement 7.1:
      * WHEN the Static_Site_Construct is instantiated with the isSinglePageApp
      * parameter set to false, THE CloudFront_Function SHALL be created with
      * a runtime of cloudfront-js-2.0
@@ -115,7 +112,6 @@ describe('Static HTML Mode', () => {
 
   describe('Function Association', () => {
     /**
-     * Validates Requirement 7.2:
      * WHEN the Static_Site_Construct is instantiated with the isSinglePageApp
      * parameter set to false, THE CloudFront_Function SHALL be associated with
      * the CloudFront_Distribution on the viewer-request event type
@@ -178,7 +174,6 @@ describe('Static HTML Mode', () => {
 
   describe('Custom Error Responses', () => {
     /**
-     * Validates Requirement 7.8:
      * WHEN the Static_Site_Construct is instantiated with the isSinglePageApp
      * parameter set to false, THE CloudFront_Distribution SHALL NOT configure
      * custom error responses for HTTP 403 or HTTP 404 status codes
@@ -208,7 +203,6 @@ describe('Static HTML Mode', () => {
     });
 
     /**
-     * Validates Requirement 7.8:
      * Verifies no custom error response for 404 in static HTML mode
      */
     it('should NOT configure custom error responses for 404', () => {
@@ -261,7 +255,6 @@ describe('Static HTML Mode', () => {
 
   describe('Contrast with SPA Mode', () => {
     /**
-     * Validates Requirement 10.6:
      * WHEN isSinglePageApp is set to false, THE unit tests SHALL verify that
      * the CloudFront_Function is created and associated with the CloudFront_Distribution
      * on the viewer-request event type

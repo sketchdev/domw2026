@@ -13,8 +13,6 @@ import { StaticSiteConstruct } from '../src/static-site-construct';
  * Note: DnsValidatedCertificate creates a custom CloudFormation resource
  * that provisions the certificate cross-region. We verify the custom
  * resource properties to ensure correct configuration.
- * 
- * Validates: Requirements 3.1, 3.2, 3.3, 10.4
  */
 describe('ACM Certificate', () => {
   let app: App;
@@ -38,7 +36,6 @@ describe('ACM Certificate', () => {
 
   describe('Region Configuration', () => {
     /**
-     * Validates Requirement 3.2:
      * THE ACM_Certificate SHALL be provisioned in the us-east-1 region
      * as required by CloudFront
      * 
@@ -90,7 +87,6 @@ describe('ACM Certificate', () => {
 
   describe('DNS Validation', () => {
     /**
-     * Validates Requirement 3.3:
      * THE ACM_Certificate SHALL use DNS validation for automated certificate
      * issuance and SHALL create the required Route 53 DNS validation records
      * 

@@ -10,8 +10,6 @@ import { StaticSiteConstruct } from '../src/static-site-construct';
  * These tests verify that the S3 bucket is created with:
  * - Correct encryption settings (SSE-S3 or SSE-KMS)
  * - All public access block settings enabled
- * 
- * Validates: Requirements 2.1, 2.2, 2.3, 10.2
  */
 describe('S3 Origin Bucket', () => {
   let app: App;
@@ -30,7 +28,6 @@ describe('S3 Origin Bucket', () => {
 
   describe('Encryption', () => {
     /**
-     * Validates Requirement 2.1:
      * WHEN the Static_Site_Construct is instantiated without an encryptionKey parameter,
      * THE S3_Origin_Bucket SHALL be created with server-side encryption enabled using
      * SSE-S3 (AES-256) as the default encryption algorithm
@@ -59,7 +56,6 @@ describe('S3 Origin Bucket', () => {
     });
 
     /**
-     * Validates Requirement 2.2:
      * WHEN the Static_Site_Construct is instantiated with an encryptionKey parameter,
      * THE S3_Origin_Bucket SHALL be created with server-side encryption enabled using
      * SSE-KMS with the provided Customer Master Key (CMK)
@@ -139,7 +135,6 @@ describe('S3 Origin Bucket', () => {
 
   describe('Public Access Block', () => {
     /**
-     * Validates Requirement 2.3:
      * WHEN the Static_Site_Construct is instantiated, THE S3_Origin_Bucket SHALL be
      * configured to block all public access by enabling BlockPublicAcls, IgnorePublicAcls,
      * BlockPublicPolicy, and RestrictPublicBuckets settings

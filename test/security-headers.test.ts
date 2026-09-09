@@ -11,8 +11,6 @@ import { StaticSiteConstruct } from '../src/static-site-construct';
  * - X-Frame-Options header (DENY)
  * - Strict-Transport-Security header (max-age >= 31536000, includeSubDomains)
  * - Content-Security-Policy header
- * 
- * Validates: Requirements 5.1, 5.2, 5.3, 5.4, 5.5, 10.8
  */
 describe('Security Headers Policy', () => {
   let app: App;
@@ -31,7 +29,6 @@ describe('Security Headers Policy', () => {
 
   describe('X-Content-Type-Options Header', () => {
     /**
-     * Validates Requirement 5.3:
      * THE Security_Headers_Policy SHALL include the X-Content-Type-Options header
      * with value "nosniff"
      */
@@ -83,7 +80,6 @@ describe('Security Headers Policy', () => {
 
   describe('X-Frame-Options Header', () => {
     /**
-     * Validates Requirement 5.4:
      * THE Security_Headers_Policy SHALL include the X-Frame-Options header
      * with value "DENY"
      */
@@ -137,7 +133,6 @@ describe('Security Headers Policy', () => {
 
   describe('Strict-Transport-Security Header', () => {
     /**
-     * Validates Requirement 5.5:
      * THE Security_Headers_Policy SHALL include the Strict-Transport-Security header
      * with a max-age of at least 31536000 seconds and the includeSubDomains directive
      */
@@ -219,7 +214,6 @@ describe('Security Headers Policy', () => {
 
   describe('Content-Security-Policy Header', () => {
     /**
-     * Validates Requirement 5.2:
      * THE Security_Headers_Policy SHALL include the Content-Security-Policy header
      * with a directive restricting resource loading to same-origin by default
      */
@@ -321,7 +315,6 @@ describe('Security Headers Policy', () => {
 
   describe('Response Headers Policy Resource', () => {
     /**
-     * Validates Requirement 5.1:
      * WHEN the Static_Site_Construct is instantiated, THE CloudFront_Distribution
      * SHALL have a Security_Headers_Policy attached
      */

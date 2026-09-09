@@ -11,8 +11,6 @@ import { StaticSiteConstruct } from '../src/static-site-construct';
  * - Custom error responses are configured for 403 → index.html (200)
  * - Custom error responses are configured for 404 → index.html (200)
  * - CloudFront Function is NOT created (client-side routing handles all paths)
- * 
- * Validates: Requirements 6.1, 6.2, 6.3, 6.4, 10.5, 10.7
  */
 describe('SPA Mode Configuration', () => {
   let app: App;
@@ -31,7 +29,6 @@ describe('SPA Mode Configuration', () => {
 
   describe('Custom Error Responses', () => {
     /**
-     * Validates Requirement 6.1:
      * WHEN isSinglePageApp is true, THE CloudFront_Distribution SHALL return index.html
      * with HTTP status 200 for 403 errors
      */
@@ -60,7 +57,6 @@ describe('SPA Mode Configuration', () => {
     });
 
     /**
-     * Validates Requirement 6.2:
      * WHEN isSinglePageApp is true, THE CloudFront_Distribution SHALL return index.html
      * with HTTP status 200 for 404 errors
      */
@@ -89,7 +85,6 @@ describe('SPA Mode Configuration', () => {
     });
 
     /**
-     * Validates Requirements 6.3 and 6.4:
      * WHEN isSinglePageApp is true, THE error response TTL SHALL be set to 0 seconds
      * to ensure fresh routing decisions
      */
@@ -144,7 +139,6 @@ describe('SPA Mode Configuration', () => {
 
   describe('CloudFront Function', () => {
     /**
-     * Validates Requirement 6.4 / 10.7:
      * WHEN isSinglePageApp is true, THE construct SHALL NOT create a CloudFront Function
      * (URL rewriting is not needed because client-side routing handles all paths)
      */
